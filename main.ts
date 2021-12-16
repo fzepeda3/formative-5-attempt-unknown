@@ -79,6 +79,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Projectile, function (sprite
     music.pewPew.playUntilDone()
 })
 function totalAttempts (num: number) {
+    // Function with return values
     return "YOU ARE THE CHAMP!         " + "It took you " + num + " attempts!"
 }
 let cpuActionIMG: Sprite = null
@@ -92,8 +93,10 @@ userID.setPosition(30, 45)
 let cpuID = sprites.create(assets.image`cpu`, SpriteKind.Player)
 cpuID.setPosition(130, 45)
 let userAttempts = 0
+// Logic in Loops
 while (userWinner < 3) {
     userAction = game.askForNumber("", 1)
+    // Boolean Operator
     if (userAction > 3 || userAction == 0) {
         game.splash("Invalid Input...")
         game.showLongText("1- Rock 2- Scissors 3- Paper", DialogLayout.Center)
@@ -109,6 +112,7 @@ while (userWinner < 3) {
         paperCalc()
     }
 }
+// Function with parameter
 game.showLongText(totalAttempts(userAttempts), DialogLayout.Center)
 pause(100)
 game.reset()
