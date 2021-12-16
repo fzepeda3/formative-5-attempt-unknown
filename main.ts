@@ -78,6 +78,9 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Projectile, function (sprite
     otherSprite.destroy()
     music.pewPew.playUntilDone()
 })
+function totalAttempts (num: number) {
+    return "YOU ARE THE CHAMP!         " + "It took you " + num + " attempts!"
+}
 let cpuActionIMG: Sprite = null
 let userActionIMG: Sprite = null
 let cpuAction = 0
@@ -88,6 +91,7 @@ let userID = sprites.create(assets.image`you`, SpriteKind.Player)
 userID.setPosition(30, 45)
 let cpuID = sprites.create(assets.image`cpu`, SpriteKind.Player)
 cpuID.setPosition(130, 45)
+let userAttempts = 0
 while (userWinner < 3) {
     userAction = game.askForNumber("", 1)
     if (userAction > 3 || userAction == 0) {
@@ -96,6 +100,7 @@ while (userWinner < 3) {
         userAction = game.askForNumber("", 1)
     }
     cpuAction = randint(1, 3)
+    userAttempts += 1
     if (userAction == 1) {
         rockCalcU()
     } else if (userAction == 2) {
@@ -104,5 +109,6 @@ while (userWinner < 3) {
         paperCalc()
     }
 }
-game.showLongText("CONGRATS YOU ARE THE CHAMP!", DialogLayout.Center)
+game.showLongText(totalAttempts(userAttempts), DialogLayout.Center)
+pause(100)
 game.reset()
