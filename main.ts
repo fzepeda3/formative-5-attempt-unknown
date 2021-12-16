@@ -9,7 +9,7 @@ function rockCalcU () {
         pause(1000)
         game.splash("TIE!")
     } else if (cpuAction == 2) {
-        cpuActionIMG = sprites.create(assets.image`ysciss`, SpriteKind.Projectile)
+        cpuActionIMG = sprites.create(assets.image`cpusciss`, SpriteKind.Projectile)
         cpuActionIMG.setPosition(130, 60)
         cpuActionIMG.setVelocity(-100, 0)
         pause(1000)
