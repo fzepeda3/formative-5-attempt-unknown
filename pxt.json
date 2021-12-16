@@ -2,7 +2,8 @@
     "name": "formative #5 attempt unknown",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "My Extension": "pub:24551-74718-88858-50000"
     },
     "files": [
         "main.blocks",
